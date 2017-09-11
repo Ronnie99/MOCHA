@@ -1,26 +1,16 @@
 require('chromedriver')
  before(function () {
-        console.log("before")
-    });
-
-    after(function () {      
-        console.log("after")
-    });
-
-    beforeEach(function () {
-        console.log("beforeeach")
-    });
-
-    afterEach(function () {
-        console.log('aftereach')
-    });
-
-describe('测试用户注册登录', function () {
-    this.timeout(60*1000)
+         this.timeout(60*1000)
     let webdriver = require('selenium-webdriver')
     let driver = new webdriver.Builder().forBrowser('chrome').build();
     let By = webdriver.By;
     let fs = require('fs');
+    });
+
+    after(function () {      
+        driver.closed();
+    });
+describe('测试用户注册登录', function () {
     describe('yongli1', function () {
         it('导航到登录页面', async function () {
             await driver.get("http://www.qq.com")
